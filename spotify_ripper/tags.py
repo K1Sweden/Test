@@ -243,8 +243,12 @@ def set_metadata_tags(args, audio_file, idx, track, ripper):
             audio.tags["DISCTOTAL"] = str(num_discs)
             audio.tags["TRACKNUMBER"] = str(track.index)
             audio.tags["TRACKTOTAL"] = str(num_tracks)
-            if args.comment is not None:
-                audio.tags["COMMENT"] = tag_to_ascii(comment, comment_ascii)
+            
+            # MP
+            audio.tags["COMMENT"] = track.link.uri
+            
+            # if args.comment is not None:
+            #    audio.tags["COMMENT"] = tag_to_ascii(comment, comment_ascii)
             if args.grouping is not None:
                 audio.tags["GROUPING"] = \
                     tag_to_ascii(grouping, grouping_ascii)
