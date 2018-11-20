@@ -407,6 +407,9 @@ def set_metadata_tags(args, audio_file, idx, track, ripper):
             print(Fore.YELLOW + "Writing Vorbis comments - " +
                   audio.tags.vendor + Fore.RESET)
             print("-" * 79)
+            print(Fore.YELLOW + "Spotify Uri - " +
+                  track.link.uri + Fore.RESET)
+            print("-" * 79)
         if args.output_type == "alac.m4a":
             bit_rate = ((audio.info.bits_per_sample * audio.info.sample_rate) *
                         audio.info.channels)
