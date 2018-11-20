@@ -333,7 +333,7 @@ def format_track_string(ripper, format_string, idx, track):
     uri_tokens = track.link.uri.split(':')
     
     if len(uri_tokens) == 3:
-        format_string = format_string + ' (#SO:' + uri_tokens[2] + ')'
+        format_string = format_string.replace("{SO}", ' (#SO:' + uri_tokens[2] + ')')
                     
     if args.format_case is not None:
         if args.format_case == "upper":
