@@ -329,7 +329,12 @@ def format_track_string(ripper, format_string, idx, track):
                 else:
                     format_string = format_string[:match.start()] + tags[tag] + \
                                  format_string[match.end():]
-
+    # MP        
+    uri_tokens = track.link.uri.split(':')
+    
+    if len(uri_tokens) == 3:
+        format_string = format_string + ' (#SO' + uri_tokens[2] + ')'
+                    
     if args.format_case is not None:
         if args.format_case == "upper":
             format_string = format_string.upper()
